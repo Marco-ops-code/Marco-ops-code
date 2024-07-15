@@ -1,0 +1,17 @@
+def is_divisor(a, b):
+    return b % a == 0
+
+def main():
+    try:
+        a = int(input("Введите первое число (a): "))
+        b = int(input("Введите второе число (b): "))
+
+        if is_divisor(a, b) or is_divisor(b, a):
+            print("Да, одно из чисел является делителем другого.")
+        else:
+            print("Нет, ни одно из чисел не является делителем другого.")
+    except ValueError:
+        print("Пожалуйста, введите целые числа.")
+
+if __name__ == "__main__":
+    main()
