@@ -1,0 +1,16 @@
+def find_gcd(a, b):
+    while b:
+        a, b = b, a % b
+    return a
+
+def find_lcm(a, b):
+    return abs(a * b) // find_gcd(a, b)
+
+a = 24
+b = 36
+
+gcd = find_gcd(a, b)
+lcm = find_lcm(a, b)
+
+print(f"Наибольший общий делитель чисел {a} и {b} равен {gcd}")
+print(f"Наименьшее общее кратное чисел {a} и {b} равно {lcm}")
