@@ -1,21 +1,19 @@
 import math
+num_spheres = 12
 
-def calculate_total_volume():
-    total_volume = 0
-    initial_radius = 0.05  # Внутренний радиус самого маленького шара в метрах
-    thickness = 0.005  # Толщина стенки в метрах
+initial_radius = 5
 
-     for i in range(12):
-        inner_radius = initial_radius + i * thickness  
-        outer_radius = inner_radius + thickness  
+thickness = 0.5
 
-        outer_volume = (4/3) * math.pi * (outer_radius**3)
-        inner_volume = (4/3) * math.pi * (inner_radius**3)
-        shell_volume = outer_volume - inner_volume
+volumes = []
 
-        total_volume += shell_volume
+for i in range(num_spheres):
+    radius = initial_radius + i * thickness
+    volume = (4/3) * math.pi * (radius ** 3)
+    volumes.append(volume)
 
-    return total_volume * 1000  
+total_volume_cm3 = sum(volumes)
 
-total_volume_liters = calculate_total_volume()
-print("Суммарный объем всех шаров:", total_volume_liters, "литров")
+total_volume_liters = total_volume_cm3 / 1000
+
+print(f"Общий объём двенадцати вложенных друг в друга сфер равен {total_volume_liters:.2f} litres.")
