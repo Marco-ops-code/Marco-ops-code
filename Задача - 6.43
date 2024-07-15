@@ -1,0 +1,31 @@
+sequence = [1.0, 2.0, 2.0, 3.0, 3.0, 3.0, 4.0, 5.0, 5.0, 6.0, 6.0, 7.0, 1000.0]
+
+def process_sequence(sequence):
+    if sequence[-1] == 1000.0:
+        sequence = sequence[:-1]
+
+    if not sequence:
+        return 0, 0
+
+    previous_number = sequence[0]
+    current_count = 1
+    total_equal_count = 0
+    unique_numbers = set([previous_number])
+
+    for number in sequence[1:]:
+        if number == previous_number:
+            current_count += 1
+        else:
+            if current_count > 1:
+                total_equal_count += current_count
+            current_count = 1
+            previous_number = number
+            unique_numbers.add(number)
+
+    if current_count > 1:
+        total_equal_count += current_count
+
+    return total_equal_count, len(unique_numbers)
+total_equal_count, unique_count = process_sequence(sequence)
+print("Количество чисел, идущих подряд и равных между собой:", total_equal_count)
+print("Количество различных чисел в последовательности:", unique_count)
