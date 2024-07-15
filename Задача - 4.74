@@ -1,0 +1,5 @@
+number = float(input("Введите вещественное число: "))
+absolute_value = (number ** 2) ** 0.5
+print("Абсолютная величина числа:", absolute_value)
+
+
