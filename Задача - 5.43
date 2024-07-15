@@ -1,0 +1,3 @@
+salaries = [30000, 45000, 25000, 50000, 32000]  
+total_salary = sum(salaries)
+print("Общая сумма выплаченных по ведомости денег:", total_salary)
