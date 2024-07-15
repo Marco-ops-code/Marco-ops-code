@@ -1,0 +1,38 @@
+def average_score(group_scores):
+    total_score = sum(group_scores)
+    average = total_score / len(group_scores)
+    return average
+
+group1_scores = [
+    [75, 85, 90], [80, 70, 90], [60, 70, 80], [90, 85, 75], [100, 95, 90],
+    [85, 80, 70], [75, 70, 85], [80, 85, 90], [70, 65, 75], [60, 75, 80],
+    [90, 85, 80], [70, 75, 70], [85, 90, 85], [80, 70, 75], [95, 90, 85],
+    [85, 80, 90], [75, 80, 85], [65, 70, 75], [95, 90, 85], [85, 90, 95]
+]
+group2_scores = [
+    [80, 70, 60], [85, 75, 80], [90, 85, 95], [70, 65, 75], [75, 80, 85],
+    [85, 90, 95], [60, 70, 75], [80, 85, 90], [70, 75, 80], [65, 70, 75],
+    [85, 90, 80], [75, 80, 70], [90, 85, 80], [70, 75, 85], [85, 80, 90],
+    [90, 85, 80], [75, 80, 85], [85, 90, 95], [70, 75, 80], [80, 85, 90]
+]
+group3_scores = [
+    [75, 85, 95], [80, 90, 100], [70, 80, 90], [60, 70, 80], [95, 90, 85],
+    [85, 80, 75], [75, 70, 65], [80, 85, 90], [70, 75, 80], [60, 65, 70],
+    [90, 95, 85], [85, 90, 80], [75, 80, 85], [65, 70, 75], [80, 85, 90],
+    [85, 90, 95], [70, 75, 80], [75, 80, 85], [80, 85, 90], [85, 90, 95]
+]
+
+group1_average = average_score([sum(scores) / len(scores) for scores in group1_scores])
+group2_average = average_score([sum(scores) / len(scores) for scores in group2_scores])
+group3_average = average_score([sum(scores) / len(scores) for scores in group3_scores])
+
+print(f"Средний балл группы 1: {group1_average:.2f}")
+print(f"Средний балл группы 2: {group2_average:.2f}")
+print(f"Средний балл группы 3: {group3_average:.2f}")
+
+if group1_average > group2_average and group1_average > group3_average:
+    print("Лучшая группа по среднему баллу: Группа 1")
+elif group2_average > group1_average and group2_average > group3_average:
+    print("Лучшая группа по среднему баллу: Группа 2")
+else:
+    print("Лучшая группа по среднему баллу: Группа 3")
