@@ -1,0 +1,10 @@
+  def get_odd_characters(s1):
+    s2 = ""
+    for i in range(len(s1)):
+        if i % 2 == 0:
+            s2 += s1[i]
+    return s2
+
+s1 = "программирование"
+s2 = get_odd_characters(s1)
+print(s2)
