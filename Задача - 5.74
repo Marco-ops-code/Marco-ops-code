@@ -1,0 +1,21 @@
+import math
+
+def calculate_total_volume():
+    total_volume = 0
+    initial_radius = 0.05  # Внутренний радиус самого маленького шара в метрах
+    thickness = 0.005  # Толщина стенки в метрах
+
+     for i in range(12):
+        inner_radius = initial_radius + i * thickness  
+        outer_radius = inner_radius + thickness  
+
+        outer_volume = (4/3) * math.pi * (outer_radius**3)
+        inner_volume = (4/3) * math.pi * (inner_radius**3)
+        shell_volume = outer_volume - inner_volume
+
+        total_volume += shell_volume
+
+    return total_volume * 1000  
+
+total_volume_liters = calculate_total_volume()
+print("Суммарный объем всех шаров:", total_volume_liters, "литров")
